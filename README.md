@@ -7,3 +7,6 @@ I tested the model complexity of ResNet56 and ResNet56-ghost. The result is as b
 
 
 ![](https://github.com/U-C-J/GhostNet-Pytorch-Implementation-cifar10/blob/master/Screenshot%20from%202020-08-04%2014-58-08.png)
+
+
+I am trying to figure out why my ghost model flops and weights are different. If you have any idea, please tell me.
