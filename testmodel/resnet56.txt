@@ -1,0 +1,239 @@
+
+runfile('/home/ssj/torchmodels/pytorch_resnet_cifar10-master/getmodel.py', wdir='/home/ssj/torchmodels/pytorch_resnet_cifar10-master')
+Reloaded modules: resnet
+Warning: module BasicBlock is treated as a zero-op.
+Warning: module LambdaLayer is treated as a zero-op.
+Warning: module ResNet is treated as a zero-op.
+ResNet(
+  0.853 M, 100.000% Params, 0.127 GMac, 100.000% MACs, 
+  (conv1): Conv2d(0.0 M, 0.051% Params, 0.0 GMac, 0.350% MACs, 3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): Sequential(
+    0.042 M, 4.929% Params, 0.043 GMac, 34.024% MACs, 
+    (0): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (1): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (2): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (3): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (4): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (5): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (6): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (7): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (8): BasicBlock(
+      0.005 M, 0.548% Params, 0.005 GMac, 3.780% MACs, 
+      (conv1): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.002 M, 0.270% Params, 0.002 GMac, 1.864% MACs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.004% Params, 0.0 GMac, 0.026% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+  )
+  (layer2): Sequential(
+    0.162 M, 19.042% Params, 0.042 GMac, 32.858% MACs, 
+    (0): BasicBlock(
+      0.014 M, 1.636% Params, 0.004 GMac, 2.822% MACs, 
+      (conv1): Conv2d(0.005 M, 0.540% Params, 0.001 GMac, 0.932% MACs, 16, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): LambdaLayer(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (1): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (2): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (3): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (4): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (5): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (6): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (7): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (8): BasicBlock(
+      0.019 M, 2.176% Params, 0.005 GMac, 3.755% MACs, 
+      (conv1): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.009 M, 1.080% Params, 0.002 GMac, 1.864% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.008% Params, 0.0 GMac, 0.013% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+  )
+  (layer3): Sequential(
+    0.647 M, 75.898% Params, 0.041 GMac, 32.742% MACs, 
+    (0): BasicBlock(
+      0.056 M, 6.512% Params, 0.004 GMac, 2.809% MACs, 
+      (conv1): Conv2d(0.018 M, 2.161% Params, 0.001 GMac, 0.932% MACs, 32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): LambdaLayer(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (1): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (2): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (3): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (4): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (5): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (6): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (7): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+    (8): BasicBlock(
+      0.074 M, 8.673% Params, 0.005 GMac, 3.742% MACs, 
+      (conv1): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(0.037 M, 4.322% Params, 0.002 GMac, 1.864% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(0.0 M, 0.015% Params, 0.0 GMac, 0.006% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+    )
+  )
+  (linear): Linear(0.001 M, 0.076% Params, 0.0 GMac, 0.001% MACs, in_features=64, out_features=10, bias=True)
+)
+Computational complexity:       126.55 MMac
+Number of parameters:           0.85 M  
