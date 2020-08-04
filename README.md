@@ -10,7 +10,7 @@ The implementation was inclueded in testmodel\resnet.py. The basic ResNet struct
 ![](https://github.com/U-C-J/GhostNet-Pytorch-Implementation-cifar10/blob/master/Screenshot%20from%202020-08-04%2014-58-08.png)
 
 
-I am trying to figure out why my ghost model flops and weights are different. If you have any idea, please tell me.
+I am trying to figure out why my ghost model flops and weights are different. If you have any idea, please tell me. 
 
 
 [1] https://github.com/akamaster/pytorch_resnet_cifar10
