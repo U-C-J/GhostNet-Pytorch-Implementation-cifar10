@@ -14,5 +14,7 @@ The author said they fuse BN layer to previous convolution layer. So I fused BN 
 
 
 [1] https://github.com/huawei-noah/ghostnet
+
 [2] https://github.com/akamaster/pytorch_resnet_cifar10
+
 [3] https://github.com/TingsongYu/ghostnet_cifar10
