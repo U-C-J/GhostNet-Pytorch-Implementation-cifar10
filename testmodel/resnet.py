@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Aug  7 16:24:13 2020
+
+@author: ssj
+"""
+
+#v2 add init weight in ghostnet. ref:https://github.com/iamhankai/ghostnet.pytorch
+
 '''
 Properly implemented ResNet-s for CIFAR10 as described in paper [1].
 
@@ -174,35 +184,149 @@ class BasicBlock_gst(nn.Module):
         out = F.relu(out)
         return out    
     
+class BasicBlock_gst(nn.Module):
+    expansion = 1
 
+    def __init__(self, in_planes, planes, stride=1,ratio=2, option='A'):
+        super(BasicBlock_gst, self).__init__()
+        self.conv1 = GhostModule(in_planes, planes, kernel_size=3, ratio = ratio, stride=stride, relu=True)
+        #self.bn1 = nn.BatchNorm2d(planes)
+        self.conv2 = GhostModule(planes, planes, kernel_size=3, ratio = ratio, stride=1, relu=False)
+        #self.bn2 = nn.BatchNorm2d(planes)
+
+        self.shortcut = nn.Sequential()
+        if stride != 1 or in_planes != planes:
+            if option == 'A':
+                """
+                For CIFAR10 ResNet paper uses option A.
+                """
+                self.shortcut = LambdaLayer(lambda x:
+                                            F.pad(x[:, :, ::2, ::2], (0, 0, 0, 0, planes//4, planes//4), "constant", 0))
+            elif option == 'B':
+                self.shortcut = nn.Sequential(
+                     nn.Conv2d(in_planes, self.expansion * planes, kernel_size=1, stride=stride, bias=False),
+                     nn.BatchNorm2d(self.expansion * planes)
+                )
+
+    def forward(self, x):
+        out = self.conv1(x)
+        out = self.conv2(out)
+        out += self.shortcut(x)
+        out = F.relu(out)
+        return out    
+    
+class GhostBottleneck(nn.Module):
+    """ Ghost bottleneck w/ optional SE"""
+
+    def __init__(self, in_chs, mid_chs, out_chs, dw_kernel_size=3,
+                 stride=1, act_layer=nn.ReLU, se_ratio=0.):
+        super(GhostBottleneck, self).__init__()
+        has_se = se_ratio is not None and se_ratio > 0.
+        self.stride = stride
+        self.expansion = 1
+
+        # Point-wise expansion
+        self.ghost1 = GhostModule(in_chs, mid_chs, relu=True)
+
+        # Depth-wise convolution
+        if self.stride > 1:
+            self.conv_dw = nn.Conv2d(mid_chs, mid_chs, dw_kernel_size, stride=stride,
+                             padding=(dw_kernel_size-1)//2,
+                             groups=mid_chs, bias=False)
+            self.bn_dw = nn.BatchNorm2d(mid_chs)
+
+        # Squeeze-and-excitation
+
+        self.se = None
+        # Point-wise linear projection
+        self.ghost2 = GhostModule(mid_chs, out_chs, relu=False)
+        
+        # shortcut
+        if (in_chs == out_chs and self.stride == 1):
+            self.shortcut = nn.Sequential()
+        else:
+            option = 'A'
+            if option == 'A':
+                """
+                For CIFAR10 ResNet paper uses option A.
+                """
+                self.shortcut = LambdaLayer(lambda x:
+                                            F.pad(x[:, :, ::2, ::2], (0, 0, 0, 0, out_chs//4, out_chs//4), "constant", 0))
+            elif option == 'B':
+                self.shortcut = nn.Sequential(
+                     nn.Conv2d(in_chs, self.expansion * out_chs, kernel_size=1, stride=stride, bias=False),
+                     nn.BatchNorm2d(self.expansion * out_chs)
+                )
+            """
+            self.shortcut = nn.Sequential(
+                nn.Conv2d(in_chs, in_chs, dw_kernel_size, stride=stride,
+                       padding=(dw_kernel_size-1)//2, groups=in_chs, bias=False),
+                nn.BatchNorm2d(in_chs),
+                nn.Conv2d(in_chs, out_chs, 1, stride=1, padding=0, bias=False),
+                nn.BatchNorm2d(out_chs),
+            )
+            """
+
+    def forward(self, x):
+        residual = x
+
+        # 1st ghost bottleneck
+        x = self.ghost1(x)
+
+        # Depth-wise convolution
+        if self.stride > 1:
+            x = self.conv_dw(x)
+            x = self.bn_dw(x)
+
+        # Squeeze-and-excitation
+        if self.se is not None:
+            x = self.se(x)
+
+        # 2nd ghost bottleneck
+        x = self.ghost2(x)
+        
+        x += self.shortcut(residual)
+        return x
     
 class ResNet_gst(nn.Module):
     def __init__(self, block, num_blocks, num_classes=10):
         super(ResNet_gst, self).__init__()
         self.in_planes = 16
 
-        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False)
+        #self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False)
         #self.conv1 =GhostModule(3, 16, relu=True)
         
-        self.bn1 = nn.BatchNorm2d(16)
-        self.layer1 = self._make_layer(block, 16, num_blocks[0], stride=1)
-        self.layer2 = self._make_layer(block, 32, num_blocks[1], stride=2)
-        self.layer3 = self._make_layer(block, 64, num_blocks[2], stride=2)
+        #self.bn1 = nn.BatchNorm2d(16)
+
+        self.layer0 = self._make_layer0(16)
+        self.layer1 = self._make_layer(block, 16, num_blocks[0], stride=1,ratio=2)
+        self.layer2 = self._make_layer(block, 32, num_blocks[1], stride=2,ratio=2)
+        self.layer3 = self._make_layer(block, 64, num_blocks[2], stride=2,ratio=2)
         self.linear = nn.Linear(64, num_classes)
 
-        self.apply(_weights_init)
+        #self.apply(_weights_init)
+        self._initialize_weights()
 
-    def _make_layer(self, block, planes, num_blocks, stride):
+    def _make_layer(self, block, planes, num_blocks, stride,ratio):
         strides = [stride] + [1]*(num_blocks-1) #only the first layer of this block is stride 2 if input stride is 2, other layers stride is 1
         layers = []
         for stride in strides:
-            layers.append(block(self.in_planes, planes, stride=stride))
+            layers.append(block(self.in_planes, planes,ratio = ratio, stride=stride))
             self.in_planes = planes 
         return nn.Sequential(*layers)
+    
+    def _make_layer0(self, planes):
+        
+        layer0 =  nn.Sequential(
+            nn.Conv2d(3, planes, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.BatchNorm2d(planes),
+            nn.ReLU(inplace=True)
+        )
+        return layer0
 
     def forward(self, x):
         #out = F.relu(self.bn1(self.conv1(x)))
-        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer0(x)
         out = self.layer1(out)
         out = self.layer2(out)
         out = self.layer3(out)
@@ -211,6 +335,13 @@ class ResNet_gst(nn.Module):
         out = self.linear(out)
 
         return out
+    def _initialize_weights(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
 
 def resnet20():
     return ResNet(BasicBlock, [3, 3, 3])
